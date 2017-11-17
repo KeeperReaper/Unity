@@ -5,9 +5,10 @@ using UnityEngine;
 public class BallManager : MonoBehaviour {
 
     public PaddleManager Paddle;
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
     // Use this for initialization
     void Start () {
+        Paddle = GameObject.FindObjectOfType<PaddleManager>();
         rb = this.GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Static;
     }
@@ -21,5 +22,10 @@ public class BallManager : MonoBehaviour {
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.velocity = new Vector2(10f, 10f);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GetComponent<AudioSource>().Play();
     }
 }

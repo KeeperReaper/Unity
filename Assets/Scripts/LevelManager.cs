@@ -15,6 +15,10 @@ public class LevelManager : MonoBehaviour {
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void LoadNextScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     void Update () {
     }
 }

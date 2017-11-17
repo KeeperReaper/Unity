@@ -13,7 +13,6 @@ public class PaddleManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        print(Input.mousePosition.x);
         paddlePosition.x = Mathf.Clamp((Input.mousePosition.x / Screen.width * 16) - 8, -7.36f, 7.36f);
         transform.position = paddlePosition;
         //    if (Input.GetKey(KeyCode.LeftArrow))
